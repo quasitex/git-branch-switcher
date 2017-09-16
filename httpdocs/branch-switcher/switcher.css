@@ -1,0 +1,13 @@
+#_branchswitcher {
+	display: block;
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	width: 180px;
+	text-align: right;
+}
+
+#_branchswitcher-branch {
+	font-size: 0.8em;
+	max-width: 180px;
+}

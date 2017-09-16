@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+# An example hook script to clean branch switcher cache for each git pull request.
+#
+# To enable this hook, rename this file to "post-checkout".
+
+# Option 1: trough website
+# put valid url below (eq. http://yoursite.tld/branch-switcher/switcher.php):
+# exec curl -X "DELETE" http://yoursite.tld/branch-switcher/switcher.php
+
+# Option 2: trough file system
+# put valid file path below: 
+# php -f httpdocs/branch-switcher/switcher.php delete
