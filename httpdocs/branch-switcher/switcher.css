@@ -5,9 +5,11 @@
 	right: 20px;
 	width: 180px;
 	text-align: right;
+	z-index: 999;
 }
 
 #_branchswitcher-branch {
 	font-size: 0.8em;
 	max-width: 180px;
+	display: inline !important;
 }

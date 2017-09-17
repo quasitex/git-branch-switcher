@@ -4,7 +4,7 @@ $(document).ready(function() {
 	$('#_branchswitcher-branch').on('focus', function () {
         	this.previous = $(this).val();
 	}).change(function() {
-		if (!confirm('Please, confirm switching to branch "'+$('#_branchswitcher-branch').val()+'"?')) {
+		if (!confirm('Please, confirm switching to branch "'+$('#_branchswitcher-branch').val()+'"...')) {
 			$(this).val(this.previous);
 
 			return;
@@ -99,12 +99,9 @@ function enableControls() {
 }
 
 function getServerUrl() {
-	var scripts = document.getElementsByTagName('script'),
-	script = scripts[scripts.length - 1];
-
-	if (script.getAttribute.length !== undefined) {
-		return script.getAttribute('src').substring(0, script.getAttribute('src').lastIndexOf('/'))+'/switcher.php';
-	}
-
-	return script.getAttribute('src', 2).substring(0, script.getAttribute('src', 2).lastIndexOf('/'))+'/switcher.php';
+	if ($('#branchswitcher-script').length) {
+		var url = $('#branchswitcher-script')[0].src;
+		return url.substring(0, url.lastIndexOf('/'))+'/switcher.php';
+	} 
+	return '/branch-switcher/switcher.php';
 }

@@ -7,12 +7,13 @@ Shows the drop-down with the list of repository branches (can show local only or
 See __httpdocs/example.html__
 
 ## Requirements
-Client side script uses jQuery (version not matters) and jQuery Cookie plugin.
-Server side made using PHP.
+The Git repository should be configured to fetch the data wihout password asking.
+The client side script uses jQuery (version 1+) and jQuery Cookie plugin (will be removed in the nearest future).
+The server side script is PHP based (version 4+). 
 
 ## Installation
 1. Put __httpdocs/branch-switcher__ directory to your website root (it should be accessible as __/branch-switcher__)
-2. Make __httpdocs/branch-switcher/cache__ directory writable (use __chmod 777__ command)
+2. Make __httpdocs/branch-switcher/cache__ directory writable (use __chmod 777 httpdocs/branch-switcher/cache__ command)
 3. Copy __httpdocs/gitignore.sample__ to __httpdocs/.gitignore__ (or update exiting .gitignore file) to prevent branch-switcher code changes when branch changed
 4. Copy git-hook/post-checkout.sample to Git hooks directory (eq. ./git/hook/) and rename it to post-checkout
 5. Adjust __./git/hook/post-checkout__ file to match your website configuration (use Option 1 or Option 2 from file)

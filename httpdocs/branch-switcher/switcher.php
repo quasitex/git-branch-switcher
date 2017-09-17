@@ -12,17 +12,10 @@ function switchToBranch($branch) {
 	exec('git checkout "' . $branch . '"', $out, $status);
 	exec('git pull "' . $branch . '"', $out, $status);
 
-	if ($status == STATUS_OK) {
-		$result = array(
-			'success' => true,
-		);
-
-	} else {
-		$result = array(
-			'success' => false,
-			'error' => $out,
-		);
-	}
+	$result = array(
+		($status == STATUS_OK ? 'success' : 'error') => true,
+		'status' => json_encode($out),
+	);
 
 	echo json_encode($result);
 }
@@ -35,8 +28,8 @@ function getStatus() {
 		exec('git status', $out, $status);
 
 		$result = array(
-			'success' => $status == STATUS_OK,
-			'status' => $out,
+			($status == STATUS_OK ? 'success' : 'error') => true,
+			'status' => json_encode($out),
 		);
 
 		file_put_contents(CACHE_STATUS, json_encode($result));
@@ -66,7 +59,7 @@ function listBranches($showRemote = false) {
 		}
 	
 		$result = array(
-			'success' => $status == STATUS_OK,
+			($status == STATUS_OK ? 'success' : 'error') => true,
 			'branches' => $branches,
 		);
 		file_put_contents(CACHE_BRANCHES, json_encode($result));
